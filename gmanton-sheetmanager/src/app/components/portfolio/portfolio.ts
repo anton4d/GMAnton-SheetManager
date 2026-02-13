@@ -1,9 +1,10 @@
 import { Component } from '@angular/core';
 import { Header } from './header/header';
-import { Homepage } from './homepage/homepage';
+import { RouterOutlet } from '@angular/router';
+import { Footer } from './footer/footer';
 @Component({
   selector: 'app-portfolio',
-  imports: [Header,Homepage],
+  imports: [Header,RouterOutlet,Footer],
   templateUrl: './portfolio.html',
   styleUrl: './portfolio.css',
 })

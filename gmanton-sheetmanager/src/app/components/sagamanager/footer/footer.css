@@ -8,7 +8,6 @@
   position: relative;
 }
 
-/* Top ornamental border line */
 .footer::before {
   content: '✦ ⸻⸻⸻⸻⸻⸻ ✦ ⸻⸻⸻⸻⸻⸻ ✦';
   display: block;

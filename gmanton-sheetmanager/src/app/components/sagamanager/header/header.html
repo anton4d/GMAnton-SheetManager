@@ -1,1 +1,18 @@
-<p>header works!</p>
+<header class="header">
+  <a class="logo" href="/SagaManager">
+    Saga Manager
+  </a>
+  <div class="right">
+    <nav class="nav">
+      <a routerLink="/SagaManager/Characters">Characters</a>
+      <a routerLink="/SagaManager/Sagas">Sagas</a>
+      <a routerLink="/SagaManager/Vault">Vault</a>
+      @if (!auth.isLoggedIn()) {
+        <a routerLink="/SagaManager/Login">Login</a>
+      }
+      @if (auth.isLoggedIn()) {
+        <a routerLink="/SagaManager" (click)="onLogout($event)">Logout</a>
+      }
+    </nav>
+  </div>
+</header>

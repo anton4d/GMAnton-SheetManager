@@ -1,0 +1,112 @@
+
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 16px 60px;
+  background: linear-gradient(180deg, #1a1008 0%, #2a1f0e 100%);
+  color: #c9a96e;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  border-bottom: 2px solid #5a3e1b;
+  box-shadow:
+    0 2px 0 #2a1f0e,
+    0 4px 20px rgba(0, 0, 0, 0.8);
+}
+
+.logo {
+  font-family: 'Cinzel', serif;
+  font-size: 20px;
+  font-weight: 700;
+  white-space: nowrap;
+  text-decoration: none;
+  color: #c9a96e;
+  letter-spacing: 2px;
+  text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.8);
+}
+
+.logo:hover {
+  color: #e8c98a;
+}
+
+.nav {
+  display: flex;
+  gap: 30px;
+}
+
+.nav a {
+  font-family: 'Cinzel', serif;
+  text-decoration: none;
+  color: #9a7a4a;
+  font-weight: 400;
+  font-size: 14px;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  transition: all 0.3s ease;
+  position: relative;
+}
+
+.nav a::after {
+  content: '';
+  position: absolute;
+  bottom: -4px;
+  left: 0;
+  width: 0;
+  height: 1px;
+  background: #c9a96e;
+  transition: width 0.3s ease;
+}
+
+.nav a:hover {
+  color: #c9a96e;
+}
+
+.nav a:hover::after {
+  width: 100%;
+}
+
+.right {
+  display: flex;
+  align-items: center;
+  gap: 40px;
+}
+
+.social-btn {
+  width: 36px;
+  height: 36px;
+  border-radius: 2px;
+  background-color: #2a1f0e;
+  border: 1px solid #5a3e1b;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+  color: #9a7a4a;
+  font-size: 14px;
+  transition: all 0.3s ease;
+}
+
+.social-btn:hover {
+  background-color: #3d2b10;
+  color: #c9a96e;
+  transform: translateY(-2px);
+}
+
+.social {
+  display: flex;
+  gap: 20px;
+}
+
+.social a {
+  font-family: 'Cinzel', serif;
+  text-decoration: none;
+  color: #9a7a4a;
+  font-size: 13px;
+  letter-spacing: 1px;
+  transition: 0.3s ease;
+}
+
+.social a:hover {
+  color: #c9a96e;
+}

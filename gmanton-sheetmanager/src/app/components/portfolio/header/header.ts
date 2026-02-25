@@ -1,9 +1,10 @@
 import { Component } from '@angular/core';
 import { LucideAngularModule, Github,Linkedin } from 'lucide-angular';
+import {RouterLink} from '@angular/router';
 
 @Component({
   selector: 'portfolio-header',
-  imports: [LucideAngularModule],
+  imports: [LucideAngularModule, RouterLink],
   templateUrl: './header.html',
   styleUrl: './header.css',
 })

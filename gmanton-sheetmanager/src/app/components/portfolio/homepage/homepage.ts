@@ -4,7 +4,7 @@ import { Component } from '@angular/core';
   selector: 'portfolio-homepage',
   imports: [],
   templateUrl: './homepage.html',
-  styleUrl: './homepage.css',
+  styleUrls: ['./homepage.css','../portfolio.css',]
 })
 export class Homepage {
 

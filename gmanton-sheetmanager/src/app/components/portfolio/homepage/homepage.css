@@ -1,4 +1,27 @@
+.hobbies-list {
+  justify-content: center;
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 12px;
+}
 
+.hobbies-list li {
+  background: rgba(0, 172, 193, 0.1);
+  border: 1px solid rgba(0, 172, 193, 0.25);
+  color: #e0e0e0;
+  font-size: 14px;
+  font-weight: 400;
+  padding: 8px 18px;
+  border-radius: 100px;
+  transition: background 0.2s, border-color 0.2s;
+}
+
+.hobbies-list li:hover {
+  background: rgba(0, 172, 193, 0.2);
+  border-color: rgba(0, 172, 193, 0.5);
+}
 
 #Technologies.hero {
   align-items: flex-start;

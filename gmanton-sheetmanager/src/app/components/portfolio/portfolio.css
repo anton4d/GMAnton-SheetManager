@@ -36,6 +36,14 @@
   color: #ccc;
 }
 
+.hero-content > p >a { 
+  color: #00acc1;
+  cursor: pointer;
+  transition: color 0.3s;
+}
+.hero-content > p > a:hover { 
+  color: #00d4ee;
+}
 
 .hero-buttons button {
   margin: 0 10px;

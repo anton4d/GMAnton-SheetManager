@@ -2,7 +2,7 @@ import { Component, OnInit, OnDestroy, ChangeDetectorRef } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { CommonModule } from '@angular/common';
 import { LucideAngularModule, Star, Bug } from 'lucide-angular';
-import { Subject, takeUntil } from 'rxjs';
+import { Subject, takeUntil, switchMap, of } from 'rxjs';
 import { environment } from '@env';
 
 interface Repo {
@@ -36,28 +36,23 @@ export class Homepage implements OnInit, OnDestroy {
   error = false;
   loading = false;
 
-  private cancel$ = new Subject<void>();
+  private destroy$ = new Subject<void>();
+  private retry$ = new Subject<void>();
 
   constructor(private http: HttpClient, private cd: ChangeDetectorRef) {}
 
   ngOnInit() {
-    this.loadRepos();
-  }
-
-  ngOnDestroy() {
-    this.cancel$.next();
-    this.cancel$.complete();
-  }
-
-  loadRepos() {
-    this.cancel$.next();
-    this.error = false;
-    this.repos = [];
-    this.loading = true;
-    this.cd.detectChanges();
-
-    this.http.get<RepoResponse>(`${environment.apiUrl}/V1/PortFolio/repos`)
-      .pipe(takeUntil(this.cancel$))
+    this.retry$
+      .pipe(
+        switchMap(() => {
+          this.error = false;
+          this.repos = [];
+          this.loading = true;
+          this.cd.detectChanges();
+          return this.http.get<RepoResponse>(`${environment.apiUrl}/V1/PortFolio/repos`);
+        }),
+        takeUntil(this.destroy$)
+      )
       .subscribe({
         next: (res) => {
           this.repos = res.result;
@@ -70,6 +65,17 @@ export class Homepage implements OnInit, OnDestroy {
           this.cd.detectChanges();
         }
       });
+
+    this.loadRepos();
+  }
+
+  ngOnDestroy() {
+    this.destroy$.next();
+    this.destroy$.complete();
+  }
+
+  loadRepos() {
+    this.retry$.next();
   }
 
   scrollToSection(id: string) {

@@ -1,8 +1,7 @@
-import { Component, OnInit, OnDestroy, ChangeDetectorRef } from '@angular/core';
+import { Component, OnInit, signal } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { CommonModule } from '@angular/common';
 import { LucideAngularModule, Star, Bug } from 'lucide-angular';
-import { Subject, takeUntil } from 'rxjs';
 import { environment } from '@env';
 
 interface Repo {
@@ -27,53 +26,46 @@ interface RepoResponse {
   selector: 'portfolio-homepage',
   imports: [CommonModule, LucideAngularModule],
   templateUrl: './homepage.html',
-  styleUrls: ['./homepage.css', '../portfolio.css']
+  styleUrls: ['./homepage.css', '../portfolio.css'],
 })
-export class Homepage implements OnInit, OnDestroy {
+export class Homepage implements OnInit {
   readonly Star = Star;
   readonly Bug = Bug;
-  repos: Repo[] = [];
-  error = false;
-  loading = false;
 
-  private cancel$ = new Subject<void>();
+  repos = signal<Repo[]>([]);
+  error = signal(false);
+  loading = signal(false);
 
-  constructor(private http: HttpClient, private cd: ChangeDetectorRef) {}
+  constructor(private readonly http: HttpClient) {}
 
-  ngOnInit() {
+  ngOnInit(): void {
     this.loadRepos();
   }
 
-  ngOnDestroy() {
-    this.cancel$.next();
-    this.cancel$.complete();
-  }
-
-  loadRepos() {
-    this.cancel$.next();
-    this.error = false;
-    this.repos = [];
-    this.loading = true;
-    this.cd.detectChanges();
+  loadRepos(): void {
+    this.repos.set([]);
+    this.error.set(false);
+    this.loading.set(true);
 
     this.http.get<RepoResponse>(`${environment.apiUrl}/V1/PortFolio/repos`)
-      .pipe(takeUntil(this.cancel$))
       .subscribe({
         next: (res) => {
-          this.repos = res.result;
-          this.loading = false;
-          this.cd.detectChanges();
+          if (!res.success) {
+            this.error.set(true);
+            this.loading.set(false);
+            return;
+          }
+          this.repos.set(res.result);
+          this.loading.set(false);
         },
         error: () => {
-          this.error = true;
-          this.loading = false;
-          this.cd.detectChanges();
-        }
+          this.error.set(true);
+          this.loading.set(false);
+        },
       });
   }
 
-  scrollToSection(id: string) {
-    const el = document.getElementById(id);
-    if (el) el.scrollIntoView({ behavior: 'smooth' });
+  scrollToSection(id: string): void {
+    document.getElementById(id)?.scrollIntoView({ behavior: 'smooth' });
   }
 }

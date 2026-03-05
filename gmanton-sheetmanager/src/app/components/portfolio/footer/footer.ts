@@ -1,8 +1,9 @@
 import { Component } from '@angular/core';
 import { LucideAngularModule, Github,Linkedin } from 'lucide-angular';
+import {RouterLink} from '@angular/router';
 @Component({
   selector: 'portfolio-footer',
-  imports: [LucideAngularModule],
+  imports: [LucideAngularModule, RouterLink],
   templateUrl: './footer.html',
   styleUrl: './footer.css',
 })

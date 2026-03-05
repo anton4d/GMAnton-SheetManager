@@ -411,23 +411,23 @@
     </div>
     <!-- end .skills -->
   </div>
-</section>
-<!-- end technologies -->
+  </section>
+  <!-- end technologies -->
 
   <section id="Projects" class="hero">
     <div class="hero-content">
       <h1>Projects</h1>
       <p>Backend Developer</p>
-      @if (loading) {
+      @if (loading()) {
         <p class="repo-loading">Loading projects...</p>
-      } @else if (error) {
+      } @else if (error()) {
         <div class="repo-error">
           <p>Failed to load projects, please try again.</p>
           <button class="secondary-btn" (click)="loadRepos()">Try Again</button>
         </div>
       } @else {
         <div class="repo-grid">
-          @for (repo of repos; track repo.id) {
+          @for (repo of repos(); track repo.id) {
             <div class="repo-card">
               <img
                 [src]="'https://opengraph.githubassets.com/1/' + repo.full_name"

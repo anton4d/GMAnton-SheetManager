@@ -45,6 +45,8 @@
   color: #00d4ee;
 }
 
+
+
 .hero-buttons button {
   margin: 0 10px;
   padding: 12px 25px;
@@ -57,6 +59,7 @@
 
 .primary-btn {
   background-color: #00bcd4;
+  border-radius: 5px;
   color: black;
 }
 .primary-btn:hover { background-color: #00acc1; }

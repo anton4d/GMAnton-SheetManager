@@ -62,7 +62,8 @@ export class Homepage implements OnInit {
           this.error.set(true);
           this.loading.set(false);
         },
-      });
+      }
+    );
   }
 
   scrollToSection(id: string): void {

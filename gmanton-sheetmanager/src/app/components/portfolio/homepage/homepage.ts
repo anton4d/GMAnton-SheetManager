@@ -26,7 +26,7 @@ interface RepoResponse {
   selector: 'portfolio-homepage',
   imports: [CommonModule, LucideAngularModule],
   templateUrl: './homepage.html',
-  styleUrls: ['./homepage.css', '../portfolio.css'],
+  styleUrls: ['./homepage.scss', '../portfolio.scss'],
 })
 export class Homepage implements OnInit {
   readonly Star = Star;

@@ -6,7 +6,7 @@ import { Footer } from './footer/footer';
   selector: 'app-portfolio',
   imports: [Header,RouterOutlet,Footer],
   templateUrl: './portfolio.html',
-  styleUrl: './portfolio.css',
+  styleUrl: './portfolio.scss',
 })
 export class Portfolio {
 

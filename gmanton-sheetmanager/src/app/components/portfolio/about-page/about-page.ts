@@ -4,7 +4,7 @@ import { Component } from '@angular/core';
   selector: 'app-portfolio-about-page',
   imports: [],
   templateUrl: './about-page.html',
-  styleUrls: ['./about-page.css','../portfolio.css'],
+  styleUrls: ['./about-page.scss','../portfolio.scss'],
 })
 export class AboutPage {
 

@@ -5,7 +5,7 @@ import {RouterLink} from '@angular/router';
   selector: 'portfolio-footer',
   imports: [LucideAngularModule, RouterLink],
   templateUrl: './footer.html',
-  styleUrl: './footer.css',
+  styleUrl: './footer.scss',
 })
 export class Footer {
     readonly githubIcon = Github;

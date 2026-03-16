@@ -429,7 +429,11 @@
       <h1>Projects</h1>
       <p>Backend Developer</p>
       @if (loading()) {
-      <p class="repo-loading">Loading projects...</p>
+      <div class="loading">
+          <span class="loading-dot"></span>
+          <span class="loading-dot"></span>
+          <span class="loading-dot"></span>
+        </div>
       } @else if (error()) {
       <div class="repo-error">
         <p>Failed to load projects, please try again.</p>
@@ -460,8 +464,8 @@
                   {{ repo.open_issues_count }} issues
                 </span>
               </div>
-              <a [href]="repo.html_url" target="_blank">
-                <button class="primary-btn">View Code</button>
+              <a [href]="repo.html_url" target="_blank" rel="noopener noreferrer" class="primary-btn">
+                    View Code
               </a>
             </div>
           </div>

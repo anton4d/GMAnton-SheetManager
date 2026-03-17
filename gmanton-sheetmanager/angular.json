@@ -24,6 +24,12 @@
           "options": {
             "browser": "src/main.ts",
             "tsConfig": "tsconfig.app.json",
+            "stylePreprocessorOptions": {
+              "includePaths": [
+                "src/app/components/portfolio",
+                "src/app/components/sagamanager"
+              ]
+            },
             "assets": [
               {
                 "glob": "**/*",

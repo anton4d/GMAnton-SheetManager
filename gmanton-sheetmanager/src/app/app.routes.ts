@@ -1,9 +1,12 @@
 import { Routes } from '@angular/router';
+
+// Portfolio Routes
 import { Portfolio } from './components/portfolio/portfolio'; 
 import { Homepage } from './components/portfolio/homepage/homepage';
 import { AboutPage } from './components/portfolio/about-page/about-page';
 import { Projects } from './components/portfolio/projects/projects';
 
+// SagaManager Routes
 import { Sagamanager } from './components/sagamanager/sagamanager';
 import { SagaManagerHomepage } from './components/sagamanager/homepage/homepage';
 

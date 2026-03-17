@@ -1,5 +1,5 @@
-@use '../colors' as *;
-@use '../breakpoints' as *;
+@use 'Pcolors' as *;
+@use 'Pbreakpoints' as *;
 
 .footer {
   background: $bg-header;
@@ -24,7 +24,7 @@
     gap: 60px;
     padding-bottom: 40px;
 
-    @media (max-width: $desktop) {
+    @media (max-width: $tablet) {
       grid-template-columns: 1fr 1fr;
       gap: 40px;
     }
@@ -48,7 +48,7 @@
     line-height: 1.6;
     max-width: 400px;
 
-    @media (max-width: $desktop) { max-width: 100%; }
+    @media (max-width: $tablet) { max-width: 100%; }
   }
 
   &-title {

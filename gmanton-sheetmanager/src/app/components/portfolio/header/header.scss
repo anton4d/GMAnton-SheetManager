@@ -1,5 +1,5 @@
-@use '../colors' as *;
-@use '../breakpoints' as *;
+@use 'Pcolors' as *;
+@use 'Pbreakpoints' as *;
 
 .header {
   display: flex;
@@ -12,7 +12,7 @@
   top: 0;
   z-index: 1000;
 
-  @media (max-width: $desktop) {
+  @media (max-width: $tablet) {
     padding: 16px 30px;
   }
 
@@ -37,7 +37,7 @@
   display: flex;
   gap: 30px;
 
-  @media (max-width: $desktop) { gap: 20px; }
+  @media (max-width: $tablet) { gap: 20px; }
 
   @media (max-width: $mobile-header) {
     flex-direction: column;
@@ -60,7 +60,7 @@
   align-items: center;
   gap: 40px;
 
-  @media (max-width: $desktop) { gap: 20px; }
+  @media (max-width: $tablet) { gap: 20px; }
 
   @media (max-width: $mobile-header) {
     flex-direction: column;

@@ -4,10 +4,12 @@ import { LucideAngularModule, Star, Bug } from 'lucide-angular';
 
 import { Repo } from '@Types';
 import { RepoService } from '../Services/repoService/repo-service';
+import { Skills } from './skills/skills';
+
 
 @Component({
   selector: 'portfolio-homepage',
-  imports: [CommonModule, LucideAngularModule],
+  imports: [CommonModule, LucideAngularModule,Skills],
   templateUrl: './homepage.html',
   styleUrls: ['./homepage.scss', '../portfolio.scss'],
 })

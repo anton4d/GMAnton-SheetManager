@@ -1,5 +1,5 @@
-@use '../colors' as *;
-@use '../breakpoints' as *;
+@use 'Pcolors' as *;
+@use 'Pbreakpoints' as *;
 
 
 
@@ -22,7 +22,7 @@
   margin-top: 20px;
   text-align: left;
 
-  @media (max-width: $desktop) { grid-template-columns: repeat(2, 1fr); }
+  @media (max-width: $tablet) { grid-template-columns: repeat(2, 1fr); }
   @media (max-width: $phone) { grid-template-columns: 1fr; }
 }
 
